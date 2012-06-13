@@ -15,6 +15,16 @@ run(function () {
     // a little inline controller
     when('#welcome');
 
+    when('#compass', function() {
+        navigator.compass.getCurrentHeading(function(heading) {
+            x$("#compassReading").text(heading);
+        }, function() {
+            x$("#compassReading").text("N/A");
+        });
+    }, function() {
+        return "Epic fail";
+    });
+
     when('#settings', function() {
 		// load settings from store and make sure we persist radio buttons.
 		store.get('config', function(saved) {
