@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns = "http://www.w3.org/ns/widgets"
-	xmlns:gap = "http://phonegap.com/ns/1.0"
-	id = "com.phonegap.getting.started"
-	version = "1.0.0">
 
-	<name>PhoneGap: Getting Started</name>
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "com.jeff.PhoneApp" version = "1.0.0">
+
+	<name>Jeffs Mobile App</name>
 
 	<description>
-		A template for getting started with PhoneGap development and build.phonegap.com
+		Some sort of mobile application
 	</description>
 
-	<author href="http://alunny.github.com" email="andrew.lunny@nitobi.com">Andrew Lunny</author>
+	<author href="http://siebentag.com" email="jcann@dius.com.au">Jeffrey Cann</author>
 
 	<icon src="icon.png" gap:role="default" />
 
 	<feature name="http://api.phonegap.com/1.0/geolocation"/>
 	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/compass"/>
 
 	<preference name="orientation" value="portrait" />
 

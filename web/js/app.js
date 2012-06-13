@@ -1,7 +1,8 @@
-// 
+//
 //  --- our app behavior logic ---
 //
 run(function () {
+
     // immediately invoked on first run
     var init = (function () {
         if (navigator.network.connection.type == Connection.NONE) {
@@ -10,9 +11,10 @@ run(function () {
             alert("We can reach Google - get ready for some awesome maps!");
         }
     })();
-    
+
     // a little inline controller
     when('#welcome');
+
     when('#settings', function() {
 		// load settings from store and make sure we persist radio buttons.
 		store.get('config', function(saved) {
@@ -26,13 +28,14 @@ run(function () {
 			}
 		});
 	});
+
     when('#map', function () {
         store.get('config', function (saved) {
             // construct a gmap str
             var map  = saved ? saved.map || ui('map') : ui('map')
             ,   zoom = saved ? saved.zoom || ui('zoom') : ui('zoom')
             ,   path = "http://maps.google.com/maps/api/staticmap?center=";
-			
+
             navigator.geolocation.getCurrentPosition(function (position) {
                 var location = "" + position.coords.latitude + "," + position.coords.longitude;
                 path += location + "&zoom=" + zoom;
@@ -45,6 +48,7 @@ run(function () {
             });
         });
     });
+
     when('#save', function () {
         store.save({
             key:'config',
