@@ -19,7 +19,7 @@ run(function () {
 
         var options = { frequency: 3000 };
         function updateReading(heading) {
-            x$("#compassReading").html(heading);
+            x$("#compassReading").html(heading.magneticHeading);
         }
         function error(compassError) {
             alert('Compass error: ' + compassError.code);
