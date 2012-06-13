@@ -16,13 +16,16 @@ run(function () {
     when('#welcome');
 
     when('#compass', function() {
-        navigator.compass.watchHeading(function(heading) {
+
+        var options = { frequency: 3000 };
+        function updateReading(heading) {
             x$("#compassReading").html(heading);
-        }, function() {
-            x$("#compassReading").html("N/A");
-        }, {
-            frequency: 3000
-        });
+        }
+        function error(compassError) {
+            alert('Compass error: ' + compassError.code);
+            x$("#compassReading").html("ERR:" + compassError.code);
+        }
+        var watchID = navigator.compass.watchHeading(updateReading, error, options);
     }, function() {
         return "Epic fail";
     });
