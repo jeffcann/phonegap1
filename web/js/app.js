@@ -16,10 +16,12 @@ run(function () {
     when('#welcome');
 
     when('#compass', function() {
-        navigator.compass.getCurrentHeading(function(heading) {
-            x$("#compassReading").text(heading);
+        navigator.compass.watchHeading(function(heading) {
+            x$("#compassReading").html(heading);
         }, function() {
-            x$("#compassReading").text("N/A");
+            x$("#compassReading").html("N/A");
+        }, {
+            frequency: 3000
         });
     }, function() {
         return "Epic fail";
